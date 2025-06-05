@@ -1,43 +1,60 @@
 # aiassistant-backend
 
-Το `aiassistant-backend` αποτελεί το backend μέρος μιας full-stack εφαρμογής που προσομοιώνει λειτουργίες συνομιλίας τύπου ChatGPT. Ο χρήστης έχει τη δυνατότητα εγγραφής και σύνδεσης και μπορεί να ξεκινήσει συνομιλία με ένα AI μοντέλο, το οποίο απαντά δυναμικά μέσω Large Language Model (LLM) integration.
+aiassistant-backend is the backend service of a full-stack AI chat application inspired by ChatGPT. It handles user authentication, chat session management, and communication with an AI model using Large Language Model (LLM) integration.
 
-## Περιγραφή
+## Features
 
-Η εφαρμογή υποστηρίζει:
-- Εγγραφή και είσοδο χρηστών (Signup / Login)
-- Διαχείριση συνομιλιών (chat sessions)
-- Αποστολή μηνυμάτων προς AI και λήψη απαντήσεων
+- User registration and login with JWT authentication
+- Chat session management
+- Sending messages to an AI model and receiving responses
+- Secure REST API using Spring Security
+- PostgreSQL database integration
 
-Το backend είναι υλοποιημένο με Spring Boot και αλληλεπιδρά με βάση δεδομένων PostgreSQL.
+## Tech Stack
 
-## Τεχνολογίες
-
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Security
 - PostgreSQL
-- Maven
 - JWT Authentication
 - REST API
-- LLM API Integration (π.χ. Groq, OpenAI)
+- Maven
+- LLM API Integration (Groq)
 
-## Οδηγίες Εκτέλεσης
+## Getting Started
 
-```bash
-git clone https://github.com/your-username/aiassistant-backend.git
-cd aiassistant-backend
+1. Clone the repository:
 
-Ρύθμιση Βάσης Δεδομένων
-Δημιουργήστε ένα schema στη PostgreSQL και ενημερώστε το application.properties με τα δικά σας credentials:
+   git clone https://github.com/your-username/aiassistant-backend.git
+   cd aiassistant-backend
 
-properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/ai_db
-spring.datasource.username= "postgres"  
-spring.datasource.password= "1234"
+2. Set up PostgreSQL database:
 
-API Endpoints
-Μέθοδος	Endpoint
-POST	/api/auth/signup	Εγγραφή νέου χρήστη
-POST	/api/auth/login	Είσοδος χρήστη
-POST	/api/chat/message	Αποστολή μηνύματος στο AI
+   - Create a database
+   - Open src/main/resources/application.properties
+   - Replace the database credentials as needed:
+
+   spring.datasource.url=jdbc:postgresql://localhost:5432/aiassistant_db@localhost
+   spring.datasource.username=postgres
+   spring.datasource.password=1234
+
+## API Endpoints
+
+POST   /api/auth/signup      -> Register a new user  
+POST   /api/auth/login       -> Login with user credentials  
+POST   /api/chat/message     -> Send a message to the AI and receive a response
+
+## Project Structure
+
+src/
+├── config/        - Security configuration
+├── controller/    - REST controllers (authentication and chat)
+├── model/         - Entity classes and data transfer objects
+├── repository/    - JPA repositories for database interaction
+├── service/       - Business logic and AI communication
+└── resources/     - application.properties and other resources
+
+## Notes
+
+- You can connect the service to any LLM provider (such as Groq or OpenAI) via their API.
+- For testing, use tools like Postman or Thunder Client to send HTTP requests.
