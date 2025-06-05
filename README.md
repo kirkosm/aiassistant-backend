@@ -32,7 +32,9 @@ aiassistant-backend is the backend service of a full-stack AI chat application i
    - Replace the database credentials as needed:
 
    spring.datasource.url=jdbc:postgresql://localhost:5432/aiassistant_db@localhost
+   
    spring.datasource.username=postgres
+
    spring.datasource.password=1234
 
 ## API Endpoints
