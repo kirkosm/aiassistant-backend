@@ -46,4 +46,23 @@ public class UserController {
         response.put("username", user.getUsername());
         return ResponseEntity.ok(response);
     }
+
+    @PutMapping("/{id}/update")
+    public ResponseEntity<?> updateUser(
+            @PathVariable Long id,
+            @RequestBody Map<String, String> request) {
+
+        String newUsername = request.get("username");
+        String newEmail = request.get("email");
+
+        boolean updated = userService.updateUser(id, newUsername, newEmail);
+
+        if (updated) {
+            return ResponseEntity.ok(Map.of("message", "User updated successfully"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("error", "User not found"));
+        }
+    }
+
 }

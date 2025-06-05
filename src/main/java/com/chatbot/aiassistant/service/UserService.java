@@ -93,4 +93,16 @@ public class UserService {
         // Αν κάτι πήγε λάθος, επιστροφή null
         return null;
     }
+
+    public boolean updateUser(Long id, String username, String email) {
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setUsername(username);
+                    user.setEmail(email);
+                    userRepository.save(user);
+                    return true;
+                })
+                .orElse(false);
+    }
+
 }
