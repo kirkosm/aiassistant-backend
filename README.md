@@ -23,10 +23,7 @@ aiassistant-backend is the backend service of a full-stack AI chat application i
 
 ## Getting Started
 
-1. Clone the repository:
-
-   git clone https://github.com/your-username/aiassistant-backend.git
-   cd aiassistant-backend
+1. Clone the repository
 
 2. Set up PostgreSQL database:
 
