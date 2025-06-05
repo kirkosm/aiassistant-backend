@@ -46,11 +46,17 @@ POST   /api/chat/message     -> Send a message to the AI and receive a response
 ## Project Structure
 
 src/
+
 ├── config/        - Security configuration
+
 ├── controller/    - REST controllers (authentication and chat)
+
 ├── model/         - Entity classes and data transfer objects
+
 ├── repository/    - JPA repositories for database interaction
+
 ├── service/       - Business logic and AI communication
+
 └── resources/     - application.properties and other resources
 
 ## Notes
